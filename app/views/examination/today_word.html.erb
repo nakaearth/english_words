@@ -1,0 +1,26 @@
+今日の英単語は？？<br/>
+<div class="examination_form">
+  <%= form_tag('/examination/answer' , method:'post') do %>
+    <table class="word_list">
+      <th>I know.</th><th>mean</th><th></th>
+<% @examination.words.each do|word| %>
+      <tr>
+        <td>
+          <%= check_box_tag 'understand[]', word.id %>
+       </td>
+       <td>
+        <%= word.name %>
+      </td>
+      <td>
+        <%= link_to '分からなければ、こちら', word.dictionary_url %>
+      </td>
+    </tr>
+<% end %>
+</table>
+<div class="actions">
+  <%= hidden_field_tag 'examination_id', @examination.id %>
+  <%=submit_tag 'send my answer!' %>
+</div>
+<% end %>
+</div>
+

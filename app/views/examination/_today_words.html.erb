@@ -1,0 +1,8 @@
+<div class="examination_words_list" >
+<% cache @examination do %>
+  <% @examination.words.each do|w| %>
+   &nbsp;[<%= w.name %>]&nbsp;
+  <% end %>
+<% end %>
+</div>
+
